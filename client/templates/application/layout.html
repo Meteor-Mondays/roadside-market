@@ -1,21 +1,46 @@
+<head>
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="media.css">
+</head>
+
 <template name="layout">
     <header>
-        <div class="site-logo">
+        <!-- <div class="site-logo">
             <a class="site-title" href="#">Roadside Market</a>
-        </div>
+        </div> -->
 
-        <nav class="main-menu">
-            <a href="">About</a>
-            <a href="">Find a Stand</a>
+        <nav>
+          <div class="nav-wrapper teal lighten-1">
+              <a href="#!" class="brand-logo">Roadside Market</a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="">About</a></li>
+                <li><a href="">Find a Stand</a></li>
 
-            {{#if currentUser}}
-                <a href="{{pathFor 'signOut'}}">Sign-Out</a>
-            {{else}}
-                <a href="{{pathFor 'signUp'}}">Sign-Up</a>
-                <a href="{{pathFor 'signIn'}}">Sign-In</a>
-            {{/if}}
+                {{#if currentUser}}
+                    <li><a href="{{pathFor 'signOut'}}">Sign-Out</a></li>
+                {{else}}
+                    <li><a href="{{pathFor 'signUp'}}">Sign-Up</a></li>
+                    <li><a href="{{pathFor 'signIn'}}">Sign-In</a></li>
+                {{/if}}
 
-            <a href="">Profile</a>
+                <li><a href="">Profile</a></li>
+              </ul>
+              <ul class="side-nav" id="mobile-demo">
+                <li><a href="">About</a></li>
+                <li><a href="">Find a Stand</a></li>
+
+                {{#if currentUser}}
+                    <li><a href="{{pathFor 'signOut'}}">Sign-Out</a></li>
+                {{else}}
+                    <li><a href="{{pathFor 'signUp'}}">Sign-Up</a></li>
+                    <li><a href="{{pathFor 'signIn'}}">Sign-In</a></li>
+                {{/if}}
+
+                <li><a href="">Profile</a></li>
+              </ul>
+          </div>
         </nav>
     </header>
 
@@ -23,22 +48,28 @@
         {{> yield}}
     </main>
 
-    <footer>
-        <aside>
-            <h3>About</h3>
-
-            <p>
-                This is a blurb about Roadside Market. Buzzwords.
-            </p>
-        </aside>
-
-        <aside>
-            <h3>Links</h3>
-            <ul>
-                <li>Roadside Markets</li>
-                <li>FAQ</li>
-                <li>Privacy Policy</li>
-            </ul>
-        </aside>
-    </footer>
+    <footer class="page-footer teal lighten-1">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">About</h5>
+              <p class="grey-text text-lighten-4">This is a blurb about Roadside Market. Buzzwords.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Roadside Markets</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">FAQ</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2015 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+      </footer>
 </template>
