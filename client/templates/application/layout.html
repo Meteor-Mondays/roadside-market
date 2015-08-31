@@ -19,13 +19,14 @@
                 <li><a href="">Find a Stand</a></li>
 
                 {{#if currentUser}}
-                    <li><a href="{{pathFor 'signOut'}}" id="sign-out">Sign-Out</a></li>
+                    <li><a href="/"></a>{{displayName}}</li>
+                    <li><a href="{{pathFor 'signOut'}}" id="sign-out">Sign-Out</a></li>  
                 {{else}}
                     <li><a href="{{pathFor 'signUp'}}">Sign-Up</a></li>
                     <li><a href="{{pathFor 'signIn'}}">Sign-In</a></li>
                 {{/if}}
 
-                <li><a href="">Profile</a></li>
+
               </ul>
               <ul class="side-nav" id="mobile-demo">
                 <li><a href="">About</a></li>
