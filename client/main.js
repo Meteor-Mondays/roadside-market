@@ -2,44 +2,42 @@ Template.layout.onRendered(function () {
   $('.button-collapse').sideNav();
 
   // smooth scroll to anchor points
-	$('a[href*=#]:not([href=#])').click(function() {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({
-					scrollTop: target.offset().top
-				}, 500);
-				return false;
-			}
-		}
-	});
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (window.location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && window.location.hostname === this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 500);
+        return false;
+      }
+    }
+  });
 });
 
 Template.layout.events({
-  'click #sign-out': function(e, t) {
+  'click #sign-out': function(e) {
     e.preventDefault();
     Meteor.logout();
   }
 });
 
 Template.home.onRendered(function () {
-  	setBanner();
+  setBanner();
 });
 
 Template.signIn.events({
   'submit #sign-in-form': function(e, t) {
     e.preventDefault();
-    console.log(t);
     var email = t.find('#login-email').value,
     password = t.find('#login-password').value;
 
     Meteor.loginWithPassword(email, password, function(err) {
       if (err) {
-        console.log('error');
         console.warn(err);
       } else {
-        console.log('you did it');
+        Router.go('home');
       }
     });
   }
@@ -62,16 +60,16 @@ Template.signUp.events({
       if (err) {
         console.warn(err);
       } else {
-        console.log('you signed up');
+        Router.go('home');
       }
     });
   }
 });
 
 // dynamically set the banner-area height
-function setBanner(){
+var setBanner = function() {
   var theWindow = $(window);
   var windowHeight = theWindow.height();
   var navHeight = $('nav').height();
   $('#search-hero').height(windowHeight - navHeight);
-}
+};
