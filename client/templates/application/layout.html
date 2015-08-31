@@ -12,14 +12,14 @@
 
         <nav>
           <div class="nav-wrapper teal lighten-1">
-              <a href="#!" class="brand-logo">Roadside Market</a>
+              <a href="/" class="brand-logo">Roadside Market</a>
               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="">About</a></li>
                 <li><a href="">Find a Stand</a></li>
 
                 {{#if currentUser}}
-                    <li><a href="{{pathFor 'signOut'}}">Sign-Out</a></li>
+                    <li><a href="{{pathFor 'signOut'}}" id="sign-out">Sign-Out</a></li>
                 {{else}}
                     <li><a href="{{pathFor 'signUp'}}">Sign-Up</a></li>
                     <li><a href="{{pathFor 'signIn'}}">Sign-In</a></li>

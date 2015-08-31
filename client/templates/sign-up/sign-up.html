@@ -1,5 +1,32 @@
 <template name="signUp">
-  <h2>Sign-Up</h2>
-
-  {{> loginButtons}}
+  <div class="row sign-up">
+    <h2>Sign-Up</h2>
+    <form class="col s12 l6 offset-l3" id="sign-up-form" action="action">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="" id="first-name" type="text" class="validate">
+          <label for="first-name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last-name" type="text" class="validate">
+          <label for="last-name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="password" id="login-password" />
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="email" id="login-email" class="validate"/>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" id="login-button" value="Sign up" class="waves-effect waves-light btn" />
+      </div>
+    </form>
+  </div>
 </template>
