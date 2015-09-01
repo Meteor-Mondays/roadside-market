@@ -1,0 +1,13 @@
+{
+  "undef": true,
+  "unused": true,
+  "predef": [
+    "window",
+    "Meteor",
+    "Router",
+    "Template",
+    "$",
+    "console",
+    "Accounts"
+  ]
+}
